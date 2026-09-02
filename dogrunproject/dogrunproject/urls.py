@@ -23,3 +23,4 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path('dogruns/', include('dogruns.urls')),
 ]
+

@@ -1,0 +1,68 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+<!-- <link rel="stylesheet"   href="https://cdn.jsdelivr.net/npm/destyle.css@1.0.15/destyle.css" > -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ワン!だふるらん!!</title>
+</head>
+<body>
+<main>
+<!-- メイン画像 -->
+<div id="mainvisual">
+    <img src="{% static 'img/momo1.webp' %}" alt="">
+    <img src="{% static 'img/momo2.webp' %}" alt="">
+    <img src="{% static 'img/momo3.webp' %}" alt="">
+</div>
+
+<!-- エリアを探すタイトル -->
+<section id="map_title">
+<div id="map_title_inner">
+    <h2>🐾 エリア別に探す</h2>
+</div>
+</section>
+
+
+<!-- マップ画像 -->
+<section id="map">
+<div id="map_inner">
+    <object
+    data="{% static 'img/map.svg' %}"
+    type="image/svg+xml"
+    width="800">
+</object>
+</div>
+</section>
+
+<!--  新着記事 -->
+<section id="new">
+    <div id="new_title">
+        <div id="new_title_inner">
+            <h2>🐾 New Dog Run</h2>
+        </div>
+    </div>
+
+    <div id="new_box">
+        <figure>
+            <img src="{% static 'img/momo1.webp' %}" alt="">
+            <figcaption><h3><a href="about.html">タイトル</a></h3></figcaption>
+        </figure>
+
+        <figure>
+            <img src="{% static 'img/momo1.webp' %}" alt="">
+            <figcaption><h3><a href="about.html">タイトル</a></h3></figcaption>
+        </figure>
+
+        <figure>
+            <img src="{% static 'img/momo1.webp' %}" alt="">
+            <figcaption><h3><a href="about.html">タイトル</a></h3></figcaption>
+        </figure>
+    </div>
+</section>
+    </main>
+</body>
+</html>

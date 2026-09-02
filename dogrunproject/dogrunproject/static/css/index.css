@@ -1,0 +1,151 @@
+
+
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+}
+
+#mainvisual { width: 100%; height: 400px; position: relative; overflow: hidden; } 
+
+#mainvisual img { 
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    animation: fadeSlide 15s infinite; } 
+    
+    /* 1枚目 */ #mainvisual img:nth-child(1) {
+        object-position: center 20%;
+        animation-delay: 0s;} 
+    /* 2枚目 */ #mainvisual img:nth-child(2) {
+        object-position: center 55%;
+        animation-delay: 5s; } 
+    /* 3枚目 */ #mainvisual img:nth-child(3) {
+        object-position: center 60%;
+        animation-delay: 10s; } 
+    @keyframes fadeSlide { 0% { opacity: 0; } 10% { opacity: 1; } 30% { opacity: 1; } 40% { opacity: 0; } 100% { opacity: 0; } }
+
+#map_title_inner{
+    width: 800px;
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-family: "BIZ UDPGothic", sans-serif;
+    font-size: 28px;
+    font-weight: bold;
+    color: #215711;
+    display: flex;
+    align-items: center;
+}
+
+h2::after {
+    content: "";
+    height: 8px;
+    flex: 1;
+    margin-left: 30px;
+    border-top: 2px solid #215711;
+    border-bottom: 2px solid #215711;
+}
+
+
+#map{
+   margin-bottom: 80px;
+}
+
+#map_inner {
+    display: flex;
+    justify-content: center; /* 横方向の中央 */
+    align-items: center;     /* 縦方向の中央 */
+    margin-top: 50px;
+}
+
+.st1 {
+     fill:transparent;
+     transition: 0.2s ease;
+}
+
+.st1:hover {
+     fill:rgba(255, 255, 255, 0.45);
+     stroke: #ffffff;
+     stroke-width: 3px;
+}
+
+/*
+.st1 {
+    fill: transparent;
+    transition: 0.2s ease;
+    cursor: url("../img/icon.png"), auto;
+}*/
+
+
+h3{
+    font-family: "Hiragino Kaku Gothic ProN";
+    font-size: 20px;   /* 文字の大きさ */
+    font-weight: bold; /* 文字の太さ */
+    color: #333333;
+    text-align: center;
+	margin-top: 5px;
+}
+
+
+#new_box figure {
+    margin: 0;
+	padding: 0;
+}
+
+#new_box figure img {
+    height: 150px;
+    margin: 0;
+	padding: 0;
+}
+
+#new {
+    width: 100%;
+    background-color: #f4ffd0;
+    padding: 20px 0 20px 0;
+}
+
+#new_title {
+    width: 800px;
+    margin: 0 auto;
+    background-color: transparent;
+    margin-bottom: 20px;
+}
+
+#new_title_inner {
+    width: 800px;
+    margin: 0;
+}
+
+#new_box {
+    display: flex;
+    width: 800px;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding: 0;
+    background-color: transparent;
+}
+
+#new_box a {
+    color: #4F6F52;
+    text-decoration: none;
+}
+
+#new_box a:hover {
+    color: #78966F;
+}
+
+* {
+    box-sizing: border-box;
+}

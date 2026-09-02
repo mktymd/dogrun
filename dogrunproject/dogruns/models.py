@@ -37,4 +37,7 @@ class  Profile(models.Model):
     def get_absolute_url(self):
         return reverse('dogruns:dogruns_list',kwargs={'pk':self.pk})
     
+    
+
+    
 
