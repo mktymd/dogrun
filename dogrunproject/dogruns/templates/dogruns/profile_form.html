@@ -1,0 +1,71 @@
+
+
+<div class="profile-container">
+
+    <h2>🐾プロフィール登録/編集</h2>
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <table class="profile-table">
+
+            <tr>
+                <th>名前</th>
+                <td>{{ form.name }}</td>
+            </tr>
+
+            <tr>
+                <th>犬種</th>
+                <td>{{ form.breed }}</td>
+            </tr>
+
+            <tr>
+                <th>誕生日</th>
+                <td>{{ form.birthday }}</td>
+            </tr>
+
+            <tr>
+                <th>性格</th>
+                <td>{{ form.personality }}</td>
+            </tr>
+
+            <tr>
+                <th>アレルギー</th>
+                <td>{{ form.allergy }}</td>
+            </tr>
+			<tr>
+			    <th>備考</th>
+			    <td>{{ form.memo }}</td>
+			</tr>
+			<tr>
+			    <th>プロフィール画像</th>
+			    <td>{{ form.profile_image }}</td>
+			</tr>
+            <tr>
+                <th>狂犬病ワクチン</th>
+                <td>{{ form.rabies_vaccine_date }}</td>
+            </tr>
+
+            <tr>
+                <th>混合ワクチン</th>
+                <td class="vaccine-row">
+                    {{ form.mixed_vaccine_date }}
+                    {{ form.mixed_vaccine_type }}
+                </td>
+            </tr>
+
+        </table>
+
+        <div class="button-area">
+            <button type="submit" class="register-btn">
+                登録する
+            </button>
+
+            <a href="javascript:history.back() class="back-btn">">
+                前のページへ戻る
+            </a>
+        </div>
+
+    </form>
+
+</div>

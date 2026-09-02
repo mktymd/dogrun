@@ -1,0 +1,92 @@
+
+<div class="mypage-container">
+
+    <h2>🐾 My Page</h2>
+
+    <div class="profile-section">
+
+        <div class="dog-image">
+ 			{% if profile.profile_image %}
+			     {{ profile.profile_image.url }}
+			    {% else %}
+			        <p>画像未登録</p>
+			    {% endif %}
+
+			    <h3>{{ profile.name }}</h3>
+
+			</div>
+
+        </div>
+
+        <div class="dog-info">
+
+            <p>
+                <strong>犬種：</strong>
+                {{ profile.breed }}
+            </p>
+
+            <p>
+                <strong>誕生日：</strong>
+                {{ profile.birthday }}
+            </p>
+
+            <p>
+                <strong>性格：</strong>
+                {{ profile.personality }}
+            </p>
+
+            <p>
+                <strong>アレルギー：</strong>
+                {{ profile.allergy }}
+            </p>
+
+            {% if profile.memo %}
+            <p>
+                <strong>備考：</strong>
+                {{ profile.memo }}
+            </p>
+            {% endif %}
+
+            <hr>
+
+            <div class="certificate">
+
+                <p>
+                    <strong>狂犬病ワクチン証明書</strong>
+                </p>
+
+		<div class="certificate">
+
+				    <p><strong>狂犬病ワクチン証明書</strong></p>
+
+				    {% if profile.rabies_vaccine_date %}
+				        <img src="{{ profile.rabies_vaccine_date.url else %}
+				        <p>未登録</p>
+				    {% endif %}
+		</div>
+
+        </div>
+
+            <br>
+
+		<div class="certificate">
+			 <p><strong>混合ワクチン証明書</strong></p>
+				 {% if profile.mixed_vaccine_date %}
+				       <img src="{{ profile.mixedate.url }}
+				 {% else %}
+				        <p>未登録</p>
+				 {% endif %}
+				 {% if profile.mixed_vaccine_type %}
+				        <p>{{ profile.mixed_vaccine_type }}種</p>
+				 {% endif %}
+				 
+				</div>
+                
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
