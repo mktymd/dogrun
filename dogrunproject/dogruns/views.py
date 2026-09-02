@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Profile
+from .models import DogRun
 from django.urls import reverse_lazy
 from django.views.generic import ListView,DetailView,CreateView,UpdateView,DeleteView,TemplateView
 
@@ -29,5 +30,9 @@ class MyPageView(DetailView):
 class DogRunListView(TemplateView):
     template_name = 'dogruns/index.html'
     
+class DogRunListView(ListView):
+    model = DogRun
+    template_name = 'dogruns/dog_list.html'
+    context_object_name = 'dogruns'
     
     
