@@ -98,6 +98,11 @@ class DogRun(models.Model):
         upload_to='dogruns/',
         blank=True,
         null=True)
+    sub_image3 = models.ImageField(
+        verbose_name='サブ画像3',
+        upload_to='dogruns/',
+        blank=True,
+        null=True)
     def __str__(self):
         return self.name
     

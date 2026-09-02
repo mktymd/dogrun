@@ -35,4 +35,16 @@ class DogRunListView(ListView):
     template_name = 'dogruns/dog_list.html'
     context_object_name = 'dogruns'
     
+class DogRunCreateView(CreateView):
+    model = DogRun
+    fields = '__all__'
+
+    def get_form(self, form_class=None):
+        form = super().get_form(form_class)
+
+        form.fields['appeal'].widget.attrs['placeholder'] = (
+            '例：天然芝で広々したドッグランです')
+        form.fields['memo'].widget.attrs['placeholder'] = (
+            '例：土日は混雑します')
+        return form
     
