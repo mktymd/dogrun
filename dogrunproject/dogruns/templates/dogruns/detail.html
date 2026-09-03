@@ -1,0 +1,72 @@
+aaa
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ドッグラン詳細画面</title>
+    <!-- 外部のCSSファイル（style.css）を読み込む設定 -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Font Awesome (アイコン用) -->
+    <link rel="stylesheet" href="https://cloudflare.com">
+</head>
+<body>
+
+<div class="container">
+    <!-- 【左側の箱】画像と、その真下に置くエリア名 -->
+    <div class="left-column">
+        <!-- メイン画像 -->
+        <div class="main-image">
+            <img src="main.jpg" alt="メイン画像">
+        </div>
+        <!-- サブ画像3枚 -->
+        <div class="sub-images">
+            <img src="sub1.jpg" alt="サブ画像1">
+            <img src="sub2.jpg" alt="サブ画像2">
+            <img src="sub3.jpg" alt="サブ画像3">
+        </div>
+        <!-- 「📍東部エリア」の文字 -->
+        <div class="area-tag">📍 東部エリア</div>
+    </div>
+
+    <!-- 【右側の箱】施設詳細入力エリア -->
+    <div class="right-column">
+        <!-- 施設名（縦幅35px） -->
+        <div class="info-item">
+            <input type="text" class="info-box input-name" placeholder="施設名を入力してください">
+        </div>
+        
+        <!-- 条件検索（縦幅20px） -->
+        <div class="info-item">
+            <div class="info-box input-search">
+                <span class="tag">屋内</span>
+                <span class="tag">プール</span>
+                <span class="tag">貸切</span>
+                <span class="tag">カフェ</span>
+                <span class="tag">大型犬</span>
+            </div>
+        </div>
+
+        <!-- 各入力項目 -->
+        <div class="info-item"><label>住所</label><input type="text" class="info-box input-address"></div>
+        <div class="info-item"><label>営業時間</label><input type="text" class="info-box input-time"></div>
+        <div class="info-item"><label>料金</label><textarea class="info-box input-price"></textarea></div>
+        <!-- 施設の魅力（100文字制限） -->
+        <div class="info-item"><label>施設の魅力</label><textarea class="info-box input-appeal" maxlength="100" placeholder="100文字まで"></textarea></div>
+        <!-- 備考（25文字制限） -->
+        <div class="info-item"><label>備考</label><input type="text" class="info-box input-note" maxlength="25" placeholder="25文字まで"></div>
+        <div class="info-item"><label>電話番号</label><input type="text" class="info-box input-tel"></div>
+
+        <!-- 公式サイトバー -->
+        <div class="bottom-bar">
+            <span>公式サイト</span>
+            <div class="sns-links">
+                <span class="sns-btn web">Web</span>
+                <span class="sns-btn insta">Insta</span>
+                <span class="sns-btn fb">FB</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
