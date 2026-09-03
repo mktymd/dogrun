@@ -55,12 +55,27 @@
 
 <!-- 2行1列の表 -->
 <table class="profile_table2">
+
     <tr>
-        <td><a href="{{ profile.rabies_vaccine_date }}">狂犬病ワクチン接種証明書</a></td>
+        <td>
+            {% if profile.rabies_vaccine_date %}
+            <a href="{{rabies_vaccine_date.url}}">
+                狂犬病ワクチン接種証明書
+            </a>
+            {% endif %}
+        </td>
     </tr>
+
     <tr>
-        <td><a href="{{ profile.mixed_vaccine_date }}">混合ワクチン接種証明書</a></td>
+        <td>
+            {% if profile.mixed_vaccine_date %}
+            <a href="{{mixed_vaccine_date.urls}}">
+                混合ワクチン接種証明書
+            </a>
+            {% endif %}
+        </td>
     </tr>
+
 </table>
         </div>
 
