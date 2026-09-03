@@ -59,7 +59,7 @@
     <tr>
         <td>
             {% if profile.rabies_vaccine_date %}
-            <a href="{{rabies_vaccine_date.url}}">
+            <a href="{{ profile.rabies_vaccine_date.url}}" target="_blank">
                 狂犬病ワクチン接種証明書
             </a>
             {% endif %}
@@ -69,9 +69,8 @@
     <tr>
         <td>
             {% if profile.mixed_vaccine_date %}
-            <a href="{{mixed_vaccine_date.urls}}">
-                混合ワクチン接種証明書
-            </a>
+            <a href="{{ profile.mixed_vaccine_date.url}}" target="_blank">
+                混合ワクチン接種証明書</a>
             {% endif %}
         </td>
     </tr>

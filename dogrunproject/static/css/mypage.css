@@ -4,7 +4,7 @@
 }
 
 .profile_title {
-    width: 700px;
+    width: 900px;
     margin: 0 auto 30px;
     display: flex;
     justify-content: space-between;
@@ -43,7 +43,7 @@ h1 {
 
 #profile_inner {
     display: flex;
-    width: 700px;
+    width: 900px;
     margin: 0 auto;
     gap: 50px;
 }
@@ -70,7 +70,7 @@ h1 {
 }
 
 .profile_right {
-    width: 350px;
+    width: 450px
 }
 
 /* テーブル全体 */
