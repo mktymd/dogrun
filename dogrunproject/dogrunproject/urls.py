@@ -22,7 +22,8 @@ from dogruns import views
 from django.conf import settings
 from django.conf.urls.static import static
 
-urlpatterns = [
+urlpatterns = [ 
+    path("", views.index, name="index"),
     path("admin/", admin.site.urls),
     path('dogruns/', include('dogruns.urls')),
     path("mypage/",views.MyPage.as_view(),name="mypage"),

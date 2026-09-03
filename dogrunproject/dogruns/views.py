@@ -59,3 +59,6 @@ class MyPage(TemplateView):
         context["profile"] = Profile.objects.last()
         return context
     
+def index(request):
+    return render(request, "dogruns/index.html")
+    
