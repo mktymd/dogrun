@@ -1,0 +1,119 @@
+<div class="dogrun-grid">
+
+    {% for dogrun in dogruns %}
+
+    <div class="dogrun-card">
+
+        <div class="card-image-area">
+
+            <div class="main-image">
+
+                {% if dogrun.main_image %}
+                    {{ dogrun.main_image.url }}
+                {% endif %}
+
+            </div>
+
+            <div class="thumbnail-area">
+
+                {% if dogrun.sub_image1 %}
+                    <img src="{ub_image1.url }}
+                {% endif %}
+
+                {% if dogrun.sub_image2 %}
+                    {{ dogrun.sub_image2.url }}
+                {% endif %}
+
+            </div>
+
+            <div class="card-footer">
+
+                {{ dogrun.get_area_display }}
+
+                {% if dogrun.official_url %}
+                <a dogrun.official_url }}
+                    公式サイト
+                </a>
+                {% endif %}
+
+            </div>
+
+        </div>
+
+        <div class="card-info">
+
+            <div class="info-label">
+                施設名
+            </div>
+
+            <div class="info-value">
+                {{ dogrun.name }}
+            </div>
+
+            <div class="info-label">
+                設備
+            </div>
+
+            <div class="info-value">
+
+                {% if dogrun.parking %}
+                    🅿️
+                {% endif %}
+
+                {% if dogrun.water %}
+                    🚰
+                {% endif %}
+
+                {% if dogrun.restroom %}
+                    🚻
+                {% endif %}
+
+                {% if dogrun.shower %}
+                    🚿
+                {% endif %}
+
+                {% if dogrun.roof_rest %}
+                    🏠
+                {% endif %}
+
+            </div>
+
+            <div class="info-label">
+                住所
+            </div>
+
+            <div class="info-value">
+                {{ dogrun.address }}
+            </div>
+
+            <div class="info-label">
+                営業時間
+            </div>
+
+            <div class="info-value">
+                {{ dogrun.business_hours }}
+            </div>
+
+            <div class="info-label">
+                料金
+            </div>
+
+            <div class="info-value">
+                {{ dogrun.price }}
+            </div>
+
+            <div class="info-label">
+                施設の魅力
+            </div>
+
+            <div class="info-value">
+                {{ dogrun.appeal }}
+            </div>
+
+        </div>
+
+    </div>
+
+    {% endfor %}
+
+</div>

@@ -1,92 +1,72 @@
+{% load static %}
 
-<div class="mypage-container">
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/mypage.css' %}">
+<!-- <link rel="stylesheet"   href="https://cdn.jsdelivr.net/npm/destyle.css@1.0.15/destyle.css" > -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ワン!だふるらん!!  マイページ</title>
+</head>
+<body>
+<main>
+  <!-- プロフィール -->
+<section id="profile">
 
-    <h2>🐾 My Page</h2>
+    <div class="profile_title">
+        <h1>🐾 My Page</h1>
+        <a href="/profile/edit/">プロフィール編集</a>
+    </div>
 
-    <div class="profile-section">
+    <div id="profile_inner">
 
-        <div class="dog-image">
- 			{% if profile.profile_image %}
-			     {{ profile.profile_image.url }}
-			    {% else %}
-			        <p>画像未登録</p>
-			    {% endif %}
-
-			    <h3>{{ profile.name }}</h3>
-
-			</div>
-
+        <div class="profile_left">
+            <img src=" {{ profile.profile_image.url }}" alt="">
+            <p>{{ profile.name }}</p>
         </div>
 
-        <div class="dog-info">
+        <div class="profile_right">
+            <!-- 2列5行の表 -->
+<table>
+    <tr>
+        <td>犬種：</td>
+        <td>{{ profile.breed }}</td>
+    </tr>
+    <tr>
+        <td>誕生日：</td>
+        <td> {{ profile.birthday }}</td>
+    </tr>
+    <tr>
+        <td>性格：</td>
+        <td>{{ profile.personality }}</td>
+    </tr>
+    <tr>
+        <td>アレルギー：</td>
+        <td>{{ profile.allergy }}</td>
+    </tr>
+    <tr>
+        <td>備考：</td>
+        <td>{{ profile.memo }}</td>
+    </tr>
+</table>
 
-            <p>
-                <strong>犬種：</strong>
-                {{ profile.breed }}
-            </p>
 
-            <p>
-                <strong>誕生日：</strong>
-                {{ profile.birthday }}
-            </p>
-
-            <p>
-                <strong>性格：</strong>
-                {{ profile.personality }}
-            </p>
-
-            <p>
-                <strong>アレルギー：</strong>
-                {{ profile.allergy }}
-            </p>
-
-            {% if profile.memo %}
-            <p>
-                <strong>備考：</strong>
-                {{ profile.memo }}
-            </p>
-            {% endif %}
-
-            <hr>
-
-            <div class="certificate">
-
-                <p>
-                    <strong>狂犬病ワクチン証明書</strong>
-                </p>
-
-		<div class="certificate">
-
-				    <p><strong>狂犬病ワクチン証明書</strong></p>
-
-				    {% if profile.rabies_vaccine_date %}
-				        <img src="{{ profile.rabies_vaccine_date.url else %}
-				        <p>未登録</p>
-				    {% endif %}
-		</div>
-
-        </div>
-
-            <br>
-
-		<div class="certificate">
-			 <p><strong>混合ワクチン証明書</strong></p>
-				 {% if profile.mixed_vaccine_date %}
-				       <img src="{{ profile.mixedate.url }}
-				 {% else %}
-				        <p>未登録</p>
-				 {% endif %}
-				 {% if profile.mixed_vaccine_type %}
-				        <p>{{ profile.mixed_vaccine_type }}種</p>
-				 {% endif %}
-				 
-				</div>
-                
-            </div>
-
+<!-- 2行1列の表 -->
+<table class="profile_table2">
+    <tr>
+        <td><a href="{{ profile.rabies_vaccine_date }}">狂犬病ワクチン接種証明書</a></td>
+    </tr>
+    <tr>
+        <td><a href="{{ profile.mixed_vaccine_date }}">混合ワクチン接種証明書</a></td>
+    </tr>
+</table>
         </div>
 
     </div>
 
-</div>
-
+</section>
+</main>
+</body>
+</html>

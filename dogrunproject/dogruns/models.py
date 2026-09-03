@@ -35,9 +35,9 @@ class  Profile(models.Model):
     
 class DogRun(models.Model):
     AREA_CHOICES = [
-        ('west', '西部'),
-        ('central', '中部'),
-        ('east', '東部'),
+        ('seibu', '西部'),
+        ('chubu', '中部'),
+        ('tobu', '東部'),
         ('izu', '伊豆'),
         ]
     created_at = models.DateField(
@@ -50,21 +50,46 @@ class DogRun(models.Model):
     name = models.CharField(
         verbose_name='施設名',
         max_length=100)
-    parking = models.BooleanField(
-        verbose_name='駐車場',
+
+
+    outdoor = models.BooleanField(
+        verbose_name='屋外',
         default=False)
-    water = models.BooleanField(
-        verbose_name='水道',
+    indoor = models.BooleanField(
+        verbose_name='屋内',
         default=False)
-    restroom = models.BooleanField(
-        verbose_name='トイレ',
+    pool = models.BooleanField(
+        verbose_name='プール',
         default=False)
-    shower = models.BooleanField(
-        verbose_name='シャワー',
+    private = models.BooleanField(
+        verbose_name='貸切',
         default=False)
-    roof_rest = models.BooleanField(
-        verbose_name='屋根付き休憩所',
+    large_dog = models.BooleanField(
+        verbose_name='大型犬',
         default=False)
+    agility = models.BooleanField(
+        verbose_name='アジリティ',
+        default=False)
+    cafe = models.BooleanField(
+        verbose_name='カフェ併設',
+        default=False)
+    shop = models.BooleanField(
+        verbose_name='ショップ併設',
+        default=False)
+    stay = models.BooleanField(
+        verbose_name='宿泊施設',
+        default=False)
+    bbq = models.BooleanField(
+        verbose_name='BBQ',
+        default=False)
+    grass = models.BooleanField(
+        verbose_name='天然芝',
+        default=False)
+    shampoo = models.BooleanField(
+        verbose_name='シャンプー施設',
+        default=False)
+
+
     address = models.CharField(
         verbose_name='住所',
         max_length=200)
@@ -83,6 +108,8 @@ class DogRun(models.Model):
     business_hours = models.TextField(
         verbose_name='営業時間',
         blank=True)
+
+
     main_image = models.ImageField(
         verbose_name='代表画像',
         upload_to='dogruns/',
@@ -105,9 +132,3 @@ class DogRun(models.Model):
         null=True)
     def __str__(self):
         return self.name
-    
-    
-    
-
-    
-
