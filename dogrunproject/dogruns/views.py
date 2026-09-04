@@ -3,8 +3,6 @@ from .models import Profile
 from .models import DogRun
 from django.urls import reverse_lazy
 from django.views.generic import ListView,DetailView,CreateView,UpdateView,DeleteView,TemplateView,View
-from dogruns import views
-import dogruns
 # Create your views here.
 
 #プロフィール登録
