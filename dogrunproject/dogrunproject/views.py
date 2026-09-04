@@ -8,3 +8,4 @@ def mypage(request):
 # comment
 def detail(reqest):
     return render(reqest,"dogruns/detail.html")
+#comment
