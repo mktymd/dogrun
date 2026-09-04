@@ -1,13 +1,13 @@
-from django.shortcuts import render
+from django.shortcuts import render,get_object_or_404
 from .models import Profile
 from .models import DogRun
 from django.urls import reverse_lazy
-from django.views.generic import ListView,DetailView,CreateView,UpdateView,DeleteView,TemplateView
+from django.views.generic import ListView,DetailView,CreateView,UpdateView,DeleteView,TemplateView,View
 from dogruns import views
-
+import dogruns
 # Create your views here.
 
-
+#プロフィール登録
 class ProfileUpdateView(UpdateView):
     model =  Profile
     fields = ['name','breed','birthday','personality','allergy','memo','profile_image','rabies_vaccine_date',
@@ -24,12 +24,13 @@ class ProfileDetailView(DetailView):
     
 from django.views.generic import ListView
 
-
+#マイページ
 class MyPage(DetailView):
     model = Profile
     template_name = "dogruns/mypage.html"   
     context_object_name = "profile" 
     
+#ドッグラン施設登録ページ
 class DogRunCreateView(CreateView):
     model = DogRun
     fields = '__all__'
@@ -49,7 +50,8 @@ class DogRunListView(ListView):
     model = DogRun
     template_name = 'dogruns/dog_list.html'
     context_object_name = 'dogruns'
-    
+
+#マイページにプロフィールを反映させる
 class MyPage(TemplateView):
     template_name = "dogruns/mypage.html"
     
@@ -61,4 +63,17 @@ class MyPage(TemplateView):
     
 def index(request):
     return render(request, "dogruns/index.html")
+
+
+def dogrun_list(request):
+    dogruns = DogRun.objects.all()
+    return render(request, "dogrun_list.html", {
+        "dogruns": dogruns
+    })
+
+def dogrun_detail(request, pk):
+    dogrun = get_object_or_404(DogRun, pk=pk)
+    return render(request, "dogrun_detail.html", {
+        "dogrun": dogrun
+    })
     

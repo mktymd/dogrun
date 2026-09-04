@@ -1,0 +1,41 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}ワン！だふるらん！！{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+	{% block css %}{% endblock %}
+</head>
+
+<body>
+    <header>
+        <section id="top"> 
+           <div class="top_inner"> 
+             <div id="top_left"><img src="{% static 'img/Image_log1.png' %}"></div> 
+             <div id="top_centaer"><img src="{% static 'img/saite_title.png' %}"></div> 
+             <div id="top_right">
+                <div id="menu">
+                  <a href="{% static 'css/base.html' %}">ホーム</a>
+                  <a href="{% static 'css/base.html' %}">ドックラン一覧</a>
+                  <a href="{% static 'css/base.html' %}">エリア別に探す</a>
+                  <a class="button" href="{% static 'css/base.html' %}">新規登録</a>
+                  <a class="button" href="{% static 'css/base.html' %}">ログイン</a>
+                </div>
+             </div> 
+           </div> 
+       </section>
+    </header>
+    
+	
+{% block content %}{% endblock %}
+
+    <footer>
+        <section id="bottom"> 
+           <p><a href="{% static 'css/base.html' %}">お問い合わせ</a></p>
+           <p>Copyright 2026 TEAM NATURE</p>
+        </section>
+    </footer>
+</body>
+</html>

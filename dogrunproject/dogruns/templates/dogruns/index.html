@@ -1,17 +1,12 @@
+{% extends "dogruns/base.html" %}
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="{% static 'css/index.css' %}">
-<!-- <link rel="stylesheet"   href="https://cdn.jsdelivr.net/npm/destyle.css@1.0.15/destyle.css" > -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ワン!だふるらん!!</title>
-</head>
-<body>
-<main>
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock %}
+	
+
+{% block content %}
 <!-- メイン画像 -->
 <div id="mainvisual">
     <img src="{% static 'img/momo1.webp' %}" alt="">
@@ -63,6 +58,4 @@
         </figure>
     </div>
 </section>
-    </main>
-</body>
-</html>
+{% endblock %}

@@ -6,3 +6,5 @@ def index(request):
 def mypage(request):
     return render(request, "dogruns/mypage.html")
 # comment
+def detail(reqest):
+    return render(reqest,"dogruns/detail.html")

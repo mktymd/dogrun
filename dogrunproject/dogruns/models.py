@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from django.conf import settings
 
 
 class  Profile(models.Model):
@@ -132,3 +133,7 @@ class DogRun(models.Model):
         null=True)
     def __str__(self):
         return self.name
+    
+class Dogrun(models.Model):
+    owner = models.ForeignKey(
+        settings.Fore)

@@ -1,72 +1,267 @@
-aaa
+{% load static %}
 
+<!DOCTYPE html>
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ドッグラン詳細画面</title>
-    <!-- 外部のCSSファイル（style.css）を読み込む設定 -->
-    <link rel="stylesheet" href="style.css">
 
-    <!-- Font Awesome (アイコン用) -->
-    <link rel="stylesheet" href="https://cloudflare.com">
+    <title>{{ dogrun.name }} | ドッグラン詳細</title>
+
+    <!-- Djangoのstaticに置いたCSSを読み込む -->
+    <link rel="stylesheet" href="{% static 'css/detail.css' %}">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
-<body> 
+
+<body>
 
 <div class="container">
-    <!-- 【左側の箱】画像と、その真下に置くエリア名 -->
+
+    <!-- =========================
+         左側：画像・エリア
+    ========================== -->
     <div class="left-column">
+
         <!-- メイン画像 -->
         <div class="main-image">
-            <img src="main.jpg" alt="メイン画像">
+
+            {% if dogrun.main_image %}
+                <img src="{{ dogrun.main_image.url }}"
+                     alt="{{ dogrun.name }}">
+            {% else %}
+                <img src="{% static 'images/no-image.jpg' %}"
+                     alt="画像なし">
+            {% endif %}
+
         </div>
-        <!-- サブ画像3枚 -->
+
+
+        <!-- サブ画像 -->
         <div class="sub-images">
-            <img src="sub1.jpg" alt="サブ画像1">
-            <img src="sub2.jpg" alt="サブ画像2">
-            <img src="sub3.jpg" alt="サブ画像3">
+
+            {% if dogrun.sub_image1 %}
+                <img src="{{ dogrun.sub_image1.url }}"
+                     alt="{{ dogrun.name }} サブ画像1">
+            {% endif %}
+
+            {% if dogrun.sub_image2 %}
+                <img src="{{ dogrun.sub_image2.url }}"
+                     alt="{{ dogrun.name }} サブ画像2">
+            {% endif %}
+
+            {% if dogrun.sub_image3 %}
+                <img src="{{ dogrun.sub_image3.url }}"
+                     alt="{{ dogrun.name }} サブ画像3">
+            {% endif %}
+
         </div>
-        <!-- 「📍東部エリア」の文字 -->
-        <div class="area-tag">📍 東部エリア</div>
+
+
+        <!-- エリア名 -->
+        <div class="area-tag">
+            📍 {{ dogrun.area }}
+        </div>
+
     </div>
 
-    <!-- 【右側の箱】施設詳細入力エリア -->
+
+    <!-- =========================
+         右側：施設詳細
+    ========================== -->
     <div class="right-column">
-        <!-- 施設名（縦幅35px） -->
+
+
+        <!-- 施設名 -->
         <div class="info-item">
-            <input type="text" class="info-box input-name" placeholder="施設名を入力してください">
+
+            <div class="info-box input-name">
+                {{ dogrun.name }}
+            </div>
+
         </div>
-        
-        <!-- 条件検索（縦幅20px） -->
+
+
+        <!-- 条件検索タグ -->
         <div class="info-item">
+
             <div class="info-box input-search">
-                <span class="tag">屋内</span>
-                <span class="tag">プール</span>
-                <span class="tag">貸切</span>
-                <span class="tag">カフェ</span>
-                <span class="tag">大型犬</span>
+
+				<div class="info-box input-search">
+
+				    {% if dogrun.outdoor %}
+				        <span class="tag">屋外</span>
+				    {% endif %}
+
+				    {% if dogrun.indoor %}
+				        <span class="tag">屋内</span>
+				    {% endif %}
+
+				    {% if dogrun.pool %}
+				        <span class="tag">プール</span>
+				    {% endif %}
+
+				    {% if dogrun.private %}
+				        <span class="tag">貸切</span>
+				    {% endif %}
+
+				    {% if dogrun.large_dog %}
+				        <span class="tag">大型犬</span>
+				    {% endif %}
+
+				    {% if dogrun.agility %}
+				        <span class="tag">アジリティ</span>
+				    {% endif %}
+
+				    {% if dogrun.cafe %}
+				        <span class="tag">カフェ併設</span>
+				    {% endif %}
+
+				    {% if dogrun.shop %}
+				        <span class="tag">ショップ併設</span>
+				    {% endif %}
+
+				    {% if dogrun.stay %}
+				        <span class="tag">宿泊施設</span>
+				    {% endif %}
+
+				    {% if dogrun.bbq %}
+				        <span class="tag">BBQ</span>
+				    {% endif %}
+
+				    {% if dogrun.grass %}
+				        <span class="tag">天然芝</span>
+				    {% endif %}
+
+				    {% if dogrun.shampoo %}
+				        <span class="tag">シャンプー施設</span>
+				    {% endif %}
+
+				</div>
+
+
             </div>
+
         </div>
 
-        <!-- 各入力項目 -->
-        <div class="info-item"><label>住所</label><input type="text" class="info-box input-address"></div>
-        <div class="info-item"><label>営業時間</label><input type="text" class="info-box input-time"></div>
-        <div class="info-item"><label>料金</label><textarea class="info-box input-price"></textarea></div>
-        <!-- 施設の魅力（100文字制限） -->
-        <div class="info-item"><label>施設の魅力</label><textarea class="info-box input-appeal" maxlength="100" placeholder="100文字まで"></textarea></div>
-        <!-- 備考（25文字制限） -->
-        <div class="info-item"><label>備考</label><input type="text" class="info-box input-note" maxlength="25" placeholder="25文字まで"></div>
-        <div class="info-item"><label>電話番号</label><input type="text" class="info-box input-tel"></div>
 
-        <!-- 公式サイトバー -->
+        <!-- 住所 -->
+        <div class="info-item">
+
+            <label>住所</label>
+
+            <div class="info-box input-address">
+                {{ dogrun.address }}
+            </div>
+
+        </div>
+
+
+        <!-- 営業時間 -->
+        <div class="info-item">
+
+            <label>営業時間</label>
+
+            <div class="info-box input-time">
+                {{ dogrun.business_hours }}
+            </div>
+
+        </div>
+
+
+        <!-- 料金 -->
+        <div class="info-item">
+
+            <label>料金</label>
+
+            <div class="info-box input-price">
+                {{ dogrun.price|linebreaksbr }}
+            </div>
+
+        </div>
+
+
+        <!-- 施設の魅力 -->
+        <div class="info-item">
+
+            <label>施設の魅力</label>
+
+            <div class="info-box input-appeal">
+                {{ dogrun.appeal }}
+            </div>
+
+        </div>
+
+
+        <!-- 備考 -->
+		<div class="info-item">
+			    <label>備考</label>32w23
+
+			    <div class="info-box input-note">
+			        {{ dogrun.memo }}
+			    </div>
+			</div>
+
+        </div>
+
+
+        <!-- 電話番号 -->
+        <div class="info-item">
+
+            <label>電話番号</label>
+
+            <div class="info-box input-tel">
+                {{ dogrun.tel }}
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             公式サイト・SNS
+        ========================== -->
         <div class="bottom-bar">
+
             <span>公式サイト</span>
+
             <div class="sns-links">
-                <span class="sns-btn web">Web</span>
-                <span class="sns-btn insta">Insta</span>
-                <span class="sns-btn fb">FB</span>
+
+                {% if dogrun.website %}
+                    <a href="{{ dogrun.website }}"
+                       class="sns-btn web"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        Web
+                    </a>
+                {% endif %}
+
+                {% if dogrun.instagram %}
+                    <a href="{{ dogrun.instagram }}"
+                       class="sns-btn insta"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        Insta
+                    </a>
+                {% endif %}
+
+                {% if dogrun.facebook %}
+                    <a href="{{ dogrun.facebook }}"
+                       class="sns-btn fb"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        FB
+                    </a>
+                {% endif %}
+
             </div>
+
         </div>
+
     </div>
+
 </div>
 
 </body>
+</html>
