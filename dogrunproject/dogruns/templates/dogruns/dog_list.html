@@ -9,7 +9,7 @@
             <div class="main-image">
 
                 {% if dogrun.main_image %}
-                    {{ dogrun.main_image.url }}
+                    <img src="{{ dogrun.main_image.url }}">
                 {% endif %}
 
             </div>
@@ -17,11 +17,11 @@
             <div class="thumbnail-area">
 
                 {% if dogrun.sub_image1 %}
-                    <img src="{ub_image1.url }}
+                    <img src="{{ ub_image1.url }}">
                 {% endif %}
 
                 {% if dogrun.sub_image2 %}
-                    {{ dogrun.sub_image2.url }}
+                    <img src="{{ dogrun.sub_image2.url }}">
                 {% endif %}
 
             </div>
