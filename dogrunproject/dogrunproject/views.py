@@ -5,3 +5,4 @@ def index(request):
 
 def mypage(request):
     return render(request, "dogruns/mypage.html")
+#
